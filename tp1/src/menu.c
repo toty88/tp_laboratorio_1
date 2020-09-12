@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdio_ext.h>
 #include <stdlib.h>
+
+/** \brief: Menu principal que se muestra al iniciar el programa
+ *
+ * \param int flag: flag que permite saber cual de los numeros mostrar a medida que el usuario los va ingresando
+ * \param float numeroUno: el primer numero cargado
+ * \param float numeroDos: el segundo numero cargado
+ * return: devuelve la opcion elegida por el usuario
+ */
 int mainMenu(int flag, float numeroUno, float numeroDos){
 
 	int unsigned opt;
