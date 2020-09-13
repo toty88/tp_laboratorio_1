@@ -27,8 +27,7 @@ int getFloat(char *msg, char *msgError, float *pResultado, int reintentos) {
 			__fpurge(stdin);
 			scanf("%s", bufferFloat);
 			for (int x = 0; bufferFloat[x] != '\0'; x++) {
-				if ((bufferFloat[x] >= '0' && bufferFloat[x] <= '9')
-						|| bufferFloat[x] == '.' || bufferFloat[x] == '-') {
+				if ((bufferFloat[x] >= '0' && bufferFloat[x] <= '9') || bufferFloat[x] == '.' || bufferFloat[x] == '-') {
 					output = 0;
 				} else {
 					reintentos--;
