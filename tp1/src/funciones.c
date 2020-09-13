@@ -164,42 +164,40 @@ int mostrarResultados(int *resultadoOperaciones,
 	int output = -1;
 
 	if (contadorNumerosIngresados < 2 || flagCalcularOperaciones != 1) {
-		printf(
-				"CUIDADO! Resta Cargar un Operando y/o Calcular Operaciones [opcion 3]\n");
+		printf("CUIDADO! Resta Cargar un Operando y/o Calcular Operaciones [opcion 3]\n");
 	} else {
+		printf("####### RESULTADO OPERACIONES #######\n");
 		if (resultadoOperaciones[0] == 0) {
-			printf("Resultado de la SUMA: %.2f\n", resultadoSuma);
+			printf("# - Resultado de la SUMA: %.2f\n", resultadoSuma);
 		} else {
-			printf("Error al realizar la SUMA\n");
+			printf("# - Error al realizar la SUMA\n");
 		}
 		if (resultadoOperaciones[1] == 0) {
-			printf("Resultado de la RESTA: %.2f\n", resultadoResta);
+			printf("# - Resultado de la RESTA: %.2f\n", resultadoResta);
 		} else {
-			printf("Error al realizar la RESTA\n");
+			printf("# - Error al realizar la RESTA\n");
 		}
 		if (resultadoOperaciones[2] == 0) {
-			printf("Resultado del PRODUCTO: %.2f\n", resultadoProducto);
+			printf("# - Resultado del PRODUCTO: %.2f\n", resultadoProducto);
 		} else {
-			printf("Error al realizar el PRODUCTO\n");
+			printf("# - Error al realizar el PRODUCTO\n");
 		}
 		if (resultadoOperaciones[3] == 0) {
-			printf("Resultado de la DIVISION: %.2f\n", resultadoDivision);
+			printf("# - Resultado de la DIVISION: %.2f\n", resultadoDivision);
 		} else {
-			printf("Error al realizar la DIVISION\n");
+			printf("# - Error al realizar la DIVISION\n");
 		}
 		if (resultadoFactorialNumeroUno != -1) {
-			printf("Restulado Factorial Operando A: %lli\n",
+			printf("# - Restulado Factorial Operando A: %lli\n",
 					resultadoFactorialNumeroUno);
 		} else {
-			printf(
-					"Error, no se puede realizar facotorial de numeros negativos o flotantes\n");
+			printf("# - Resultado Factorial Operando A: Error, no se puede realizar facotorial de numeros negativos o flotantes\n");
 		}
 		if (resultadoFactorialNumeroDos != -1) {
-			printf("Restulado Factorial Operando B: %lli\n",
+			printf("# - Restulado Factorial Operando B: %lli\n",
 					resultadoFactorialNumeroDos);
 		} else {
-			printf(
-					"Error, no se puede realizar facotorial de numeros negativos o flotantes\n");
+			printf("# - Resultado Factorial Operando B: Error, no se puede realizar facotorial de numeros negativos o flotantes\n");
 		}
 		output = 0;
 	}
