@@ -2,6 +2,13 @@
 #include <stdio_ext.h>
 #include <stdlib.h>
 
+/*
+ * Autor: EDGARDO HORACIO LORENZO
+ * Division: 1H - TURNO NOCHE
+ * Ambiente de testeo: zsh 5.8 (x86_64-pc-linux-gnu) y gcc (GCC) 10.2.0
+ * 0 errores - 0 warnings
+ */
+
 /** \brief: funcion que solicita numero y lo valida
  *
  * \param char* msg: mensaje que solicita ingreso de numero
