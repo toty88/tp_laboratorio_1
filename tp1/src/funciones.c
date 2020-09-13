@@ -20,17 +20,29 @@
 int getFloat(char *msg, char *msgError, float *pResultado, int reintentos) {
 	int output = -1;
 	char bufferFloat[20];
+	int contadorSignoNegativo;
 	if (msg != NULL && msgError != NULL && pResultado != NULL
 			&& reintentos > 0) {
 		do {
+			contadorSignoNegativo = 0;
 			printf("%s", msg);
 			__fpurge(stdin);
 			scanf("%s", bufferFloat);
 			for (int x = 0; bufferFloat[x] != '\0'; x++) {
-				if ((bufferFloat[x] >= '0' && bufferFloat[x] <= '9')
-						|| bufferFloat[x] == '.' || bufferFloat[x] == '-') {
+				if ( (bufferFloat[x] >= '0' && bufferFloat[x] <= '9') || (bufferFloat[x] == '.' || bufferFloat[x] == '-') ){
 					output = 0;
-				} else {
+					if(bufferFloat[x] == '-'){
+						contadorSignoNegativo++;
+					}
+				}else{
+					reintentos--;
+					output = -1;
+					if (reintentos > 0) {
+						printf("%s: %d", msgError, reintentos);
+					}
+					break;
+				}
+				if(contadorSignoNegativo > 1){
 					reintentos--;
 					output = -1;
 					if (reintentos > 0) {
