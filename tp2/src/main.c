@@ -11,40 +11,54 @@ int main(void){
 	Employee arrayEmployees[SIZE_ARRAY_EMPLOYEES];
 	initEmployees(arrayEmployees, SIZE_ARRAY_EMPLOYEES);
 	hardcodeArrayEmployees(arrayEmployees);
+	unsigned int flagAlta = 1; // (1) se puede ver el hardcodeo sin necesidad de alta (0) se precisa un alta para ver los usuarios hardcodeados
 	do{
 		if(!(mainMenu(&opcionMenuPrincipal))){
 			switch(opcionMenuPrincipal){
 				case 1:
 					if(!(createEmployee(arrayEmployees, SIZE_ARRAY_EMPLOYEES))){
 						printf("ALTA EXITOSA\n");
+						flagAlta = 1;
 					}else{
 						printf("OCURRIO UN ERROR EN EL ALTA\n");
 					}
 					break;
 				case 2:
-					resultado = modifyEmployees(arrayEmployees, SIZE_ARRAY_EMPLOYEES);
-					if(resultado == 0){
-						printf("MODIFICACION EXITOSA\n");
-					}else if(resultado == 1){
-						printf("NO SE REALIZO NINGUNA MODIFICACION\n");
+					if(flagAlta){
+					    resultado = modifyEmployees(arrayEmployees, SIZE_ARRAY_EMPLOYEES);
+                        if(resultado == 0){
+                            printf("MODIFICACION EXITOSA\n");
+                        }else if(resultado == 1){
+                            printf("NO SE REALIZO NINGUNA MODIFICACION\n");
+                        }else{
+                            printf("OCURRIO UN ERROR\n");
+                        }
 					}else{
-						printf("OCURRIO UN ERROR\n");
+					    printf("\nPRIMERO DEBE REALIZAR LA CARGA DE AL MENOS UN EMPLEADO\n");
 					}
 					break;
 				case 3:
-					resultado = removeEmployee(arrayEmployees, SIZE_ARRAY_EMPLOYEES);
-					if(resultado == 0){
-						printf("BAJA EXITOSA\n");
-					}else if(resultado == 1){
-						printf("NO SE REALIZO NINGUNA BAJA\n");
-					}else{
-						printf("OCURRIO UN ERROR\n");
-					}
+				    if(flagAlta){
+                        resultado = removeEmployee(arrayEmployees, SIZE_ARRAY_EMPLOYEES);
+                        if(resultado == 0){
+                            printf("BAJA EXITOSA\n");
+                        }else if(resultado == 1){
+                            printf("NO SE REALIZO NINGUNA BAJA\n");
+                        }else{
+                            printf("OCURRIO UN ERROR\n");
+                        }
+				    }else{
+                        printf("\nPRIMERO DEBE REALIZAR LA CARGA DE AL MENOS UN EMPLEADO\n");
+                    }
 					break;
 				case 4:
-					if(reportsEmployees(arrayEmployees, SIZE_ARRAY_EMPLOYEES)){
-						printf("Error al listar empleados\n");
-					}
+				    if(flagAlta){
+                        if(reportsEmployees(arrayEmployees, SIZE_ARRAY_EMPLOYEES)){
+                            printf("ERROR AL LISTAR EMPLEADOS\n");
+                        }
+				    }else{
+                        printf("\nPRIMERO DEBE REALIZAR LA CARGA DE AL MENOS UN EMPLEADO\n");
+                    }
 					break;
 				case 5:
 					printf("HA SALIDO, ADIOS!\n");

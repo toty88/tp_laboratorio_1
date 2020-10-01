@@ -1,7 +1,7 @@
 #ifndef ARRAYEMPLOYEES_H_
 #define ARRAYEMPLOYEES_H_
 
-#include<stdio.h>
+//#include<stdio.h>
 #include"menu.h"
 #include"utn.h"
 #define SIZE_ARRAY_EMPLOYEES 1000
@@ -25,7 +25,7 @@ int findFirstFreePosition(Employee*, int, int*);
 int findEmployeeById(Employee*, int, int, int*);
 int createEmployee(Employee*, int);
 int addEmployees(Employee*, int, int, char*, char*, float, int, int);
-void printOneEmployee(Employee);
+int printOneEmployee(Employee);
 int printEmployees(Employee*, int);
 int modifyEmployees(Employee*, int);
 int reportsEmployees(Employee*, int);
