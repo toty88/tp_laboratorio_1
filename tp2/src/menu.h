@@ -9,4 +9,6 @@ int removeEmployeeMenu(int*);
 int reportsEmployeeMenu(int *);
 void printColumn(void);
 void printColumnAboveAverageSalary(void);
+void printColumnSortedAs(void);
+void printColumnSortedDes(void);
 

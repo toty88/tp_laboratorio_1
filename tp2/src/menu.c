@@ -131,11 +131,12 @@ void printColumn(void){
 
 	char sp = ' ';
 
-	printf("\n######################################################\n"
-		"################ LISTA DE EMPLEADOS ##################\n"
-		"######################################################\n");
-	printf("# %1cID%6cAPELLIDO%8cNOMBRE%5cSECTOR%7cSALARIO\n", sp, sp, sp, sp, sp);
-	printf("######################################################\n\n");
+	printf(
+	  "\n###########################################################################\n"
+		"########################### LISTA DE EMPLEADOS ############################\n"
+		"###########################################################################\n");
+	printf("# %1cID%13cAPELLIDO%15cNOMBRE%5cSECTOR%10cSALARIO\n", sp, sp, sp, sp, sp);
+	printf("###########################################################################\n\n");
 
 }
 
@@ -148,12 +149,13 @@ void printColumnAboveAverageSalary(void){
 
 	char sp = ' ';
 
-	printf("\n######################################################\n"
-		"################ LISTA DE EMPLEADOS ##################\n"
-		"####### CON SALARIOS POR ENCIMA DEL PROMEDIO #########\n"
-		"######################################################\n");
-	printf("# %1cID%6cAPELLIDO%8cNOMBRE%5cSECTOR%7cSALARIO\n", sp, sp, sp, sp, sp);
-	printf("######################################################\n\n");
+	printf(
+	  "\n###########################################################################\n"
+		"########################### LISTA DE EMPLEADOS ############################\n"
+		"################## CON SALARIOS POR ENCIMA DEL PROMEDIO ###################\n"
+		"###########################################################################\n");
+	printf("# %1cID%13cAPELLIDO%15cNOMBRE%5cSECTOR%10cSALARIO\n", sp, sp, sp, sp, sp);
+	printf("###########################################################################\n\n");
 
 }
 
@@ -162,15 +164,30 @@ void printColumnAboveAverageSalary(void){
  * @brief Funcion que imprime encabezado al listar empleados ordenados
  *
  */
-void printColumnSortedEmployees(void){
+void printColumnSortedAs(void){
 
 	char sp = ' ';
 
-	printf("\n######################################################\n"
-		"################ LISTA DE EMPLEADOS ##################\n"
-		"########### ORDENADOS POR NOMBRE Y SECTOR ############\n"
-		"######################################################\n");
-	printf("# %1cID%6cAPELLIDO%8cNOMBRE%5cSECTOR%7cSALARIO\n", sp, sp, sp, sp, sp);
-	printf("######################################################\n\n");
+	printf(
+	  "\n###########################################################################\n"
+		"########################### LISTA DE EMPLEADOS ############################\n"
+		"############### ORDENADOS POR NOMBRE Y SECTOR ASCENDENTE ##################\n"
+	    "###########################################################################\n");
+	    printf("# %1cID%13cAPELLIDO%15cNOMBRE%5cSECTOR%10cSALARIO\n", sp, sp, sp, sp, sp);
+	    printf("###########################################################################\n\n");
+
+}
+
+void printColumnSortedDes(void){
+
+    char sp = ' ';
+
+    printf(
+      "\n###########################################################################\n"
+        "########################### LISTA DE EMPLEADOS ############################\n"
+        "############## ORDENADOS POR NOMBRE Y SECTOR DESCENDENTE ##################\n"
+        "###########################################################################\n");
+        printf("# %1cID%13cAPELLIDO%15cNOMBRE%5cSECTOR%10cSALARIO\n", sp, sp, sp, sp, sp);
+        printf("###########################################################################\n\n");
 
 }

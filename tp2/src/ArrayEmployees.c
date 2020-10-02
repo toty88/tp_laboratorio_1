@@ -210,6 +210,7 @@ int modifyEmployees(Employee *pArray, int len) {
             if (!(modifyEmployeeMenu(&opcionMenuModificaciones))) {
                 switch (opcionMenuModificaciones) {
                 case 1:
+                    printColumn();
                     if (!printEmployees(pArray, len)) {
                         output = 1;
                     }
@@ -317,6 +318,7 @@ int removeEmployee(Employee *pArray, int len) {
             if (!(removeEmployeeMenu(&opcionMenuBaja))) {
                 switch (opcionMenuBaja) {
                 case 1:
+                    printColumn();
                     if (printEmployees(pArray, len)) {
                         printf("ERROR AL LISTAR EMPLEADOS\n");
                         opcionMenuBaja = 7;
@@ -334,7 +336,7 @@ int removeEmployee(Employee *pArray, int len) {
                             printf("CONFIRMAR BAJA %s %s\n",
                                     pArray[bufferIndex].name,
                                     pArray[bufferIndex].lastName);
-                            if (!utn_getInt("(1). CONFIRMAR\n(2). CANCELAR: ",
+                            if (!utn_getInt("(1). CONFIRMAR\n(2). CANCELAR: -------------> ",
                                     "Error, reintentos", &confirmaEliminacion,
                                     3)) {
                                 if (confirmaEliminacion == 1) {
@@ -375,7 +377,7 @@ int removeEmployee(Employee *pArray, int len) {
 int printOneEmployee(Employee employee) {
     int output = -1;
     if(employee.isEmpty == FALSE){
-        printf("# %d %10s %12s %10d %12.2f\n", employee.id, employee.lastName,
+        printf("# %d %20s %20s %10d %16.2f\n", employee.id, employee.lastName,
                 employee.name, employee.sector, employee.salary);
         output = 0;
     }
@@ -393,7 +395,6 @@ int printOneEmployee(Employee employee) {
 int printEmployees(Employee *pArray, int len) {
     int output = -1;
     if (pArray != NULL && len > 0) {
-        printColumn();
         for (int x = 0; x < len; x++) {
             printOneEmployee(pArray[x]);
         }
@@ -527,6 +528,7 @@ int reportsEmployees(Employee *pArray, int len) {
             if (!(reportsEmployeeMenu(&opcionMenuInformes))) {
                 switch (opcionMenuInformes) {
                 case 1:
+                    printColumn();
                     if (printEmployees(pArray, len)) {
                         printf("Error al listar empleados\n");
                     }
@@ -538,6 +540,11 @@ int reportsEmployees(Employee *pArray, int len) {
                             "\n(2). ORDENAR POR APELLIDO Y SECTOR DE FORMA DESCENDENTE: ",
                             "ERROR, REINTENTOS", &order, 3)) && !(sortEmployees(pArray, len, order)))
                     {
+                        if(order == 1){
+                            printColumnSortedAs();
+                        }else{
+                            printColumnSortedDes();
+                        }
                         printEmployees(pArray, len);
                         output = 0;
                     }
@@ -546,7 +553,7 @@ int reportsEmployees(Employee *pArray, int len) {
                     if (!(getEmployeesAverageSalary(pArray, len,
                             &bufferAverageSalary, &bufferSalarySum))) {
                         printf(
-                                "\n(#). SALARIO TOTAL DE EMPLEADOS: \t$%.2f\n(#). SALARIO PROMEDIO DE EMPLEADOS: \t%.2f\n",
+                                "\n(#). SALARIO TOTAL DE EMPLEADOS: \t$%.2f\n(#). SALARIO PROMEDIO DE EMPLEADOS: \t$%.2f\n",
                                 bufferSalarySum, bufferAverageSalary);
                         if (!(getEmployeesAboveAverageSalary(pArray, len, bufferAverageSalary))) {
                             output = 0;
