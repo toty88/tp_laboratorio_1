@@ -23,6 +23,7 @@ int main()
     int bufferOutput;
     int flagCaseOne = 0;
     int flagCaseTwo = 0;
+    int flagSave;
     char bufferFileName[SIZE_NAME];
     LinkedList *listaEmpleados = ll_newLinkedList();
     do
@@ -32,7 +33,7 @@ int main()
             switch (mainMenuOption)
             {
             case 1:
-                if(!(utn_getString("Ingrese nombre archivo: ", "Error, reintentos", bufferFileName, SIZE_NAME, 3))
+                if(!(utn_getString("\nIngrese nombre del archivo de texto: ", "Error, reintentos", bufferFileName, SIZE_NAME, 3))
                         && !(controller_loadFromText(bufferFileName, listaEmpleados)))
                 {
                     printf("\n >>>>> EMPLEADOS FORMATO TEXTO IMPORTADOS CON EXITO <<<<<\n");
@@ -45,12 +46,16 @@ int main()
                 }
                 break;
             case 2:
-                if(!(utn_getString("Ingrese nombre archivo: ", "Error, reintentos", bufferFileName, SIZE_NAME, 3))
+                if(!(utn_getString("\nIngrese nombre del archivo binario: ", "Error, reintentos", bufferFileName, SIZE_NAME, 3))
                         && !(controller_loadFromBinary(bufferFileName, listaEmpleados)))
                 {
-                    printf("\n >>>>> EMPLEADOS FORMATO TEXTO IMPORTADOS CON EXITO <<<<<\n");
-                    flagCaseOne = 2;
+                    printf("\n >>>>> EMPLEADOS FORMATO BINARIO IMPORTADOS CON EXITO <<<<<\n");
+                    flagCaseTwo = 1;
 
+                }
+                else
+                {
+                    printf("\n >>>>> ARCHIVO NO ENCONTRADO, CORROBORE NOMBRE <<<<<\n");
                 }
                 break;
             case 3:
@@ -59,6 +64,10 @@ int main()
                     if(!(controller_addEmployee(listaEmpleados)))
                     {
                         printf("\n >>>>> EMPLEADO AGREGADO CON EXITO <<<<<\n");
+                    }
+                    else
+                    {
+                        printf("\n >>>>> ERROR AL AGREGAR EMPLEADO, REVISE PARAMETROS <<<<<\n");
                     }
                 }
                 else
@@ -139,9 +148,21 @@ int main()
             case 8:
                 if(flagCaseOne == 1 || flagCaseTwo == 1)
                 {
-                    if(!(controller_saveAsText("data.csv", listaEmpleados)))
+                    if(!(utn_getIntConMinMax("\n(0). GUARDAR SOBRE MISMO ARCHIVO\n(1). GUARDAR EN NUEVO ARCHIVO ----->","Error, reintentos", &flagSave, 0, 1, 3))
+                            && flagSave == 0)
                     {
-                        printf("\n >>>>> EMPLEADOS GUARDADOS EN TEXTO CON EXITO <<<<<\n");
+                        if(!(controller_saveAsText(bufferFileName, listaEmpleados)))
+                        {
+                            printf("\n >>>>> EMPLEADOS GUARDADOS EN TEXTO CON EXITO <<<<<\n");
+                        }
+                    }
+                    else
+                    {
+                        if(!(utn_getString("(2). Ingrese nombre del archivo texto: ", "Error, reintentos", bufferFileName, SIZE_NAME, 3))
+                                && !(controller_saveAsText(bufferFileName, listaEmpleados)))
+                        {
+                            printf("\n >>>>> EMPLEADOS GUARDADOS EN TEXTO CON EXITO <<<<<\n");
+                        }
                     }
                 }
                 else
@@ -152,9 +173,21 @@ int main()
             case 9:
                 if(flagCaseOne == 1 || flagCaseTwo == 1)
                 {
-                    if(!(controller_saveAsBinary("data.bin", listaEmpleados)))
+                    if(!(utn_getIntConMinMax("\n(0). GUARDAR SOBRE MISMO ARCHIVO\n(1). GUARDAR EN NUEVO ARCHIVO ----->","Error, reintentos", &flagSave, 0, 1, 3))
+                            && flagSave == 0)
                     {
-                        printf("\n >>>>> EMPLEADOS GUARDADOS EN BINARIO CON EXITO <<<<<\n");
+                        if(!(controller_saveAsBinary(bufferFileName, listaEmpleados)))
+                        {
+                            printf("\n >>>>> EMPLEADOS GUARDADOS EN BINARIO CON EXITO <<<<<\n");
+                        }
+                    }
+                    else
+                    {
+                        if(!(utn_getString("(2). Ingrese nombre del archivo texto: ", "Error, reintentos", bufferFileName, SIZE_NAME, 3))
+                                && !(controller_saveAsBinary(bufferFileName, listaEmpleados)))
+                        {
+                            printf("\n >>>>> EMPLEADOS GUARDADOS EN BINARIO CON EXITO <<<<<\n");
+                        }
                     }
                 }
                 else

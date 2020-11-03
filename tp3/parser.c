@@ -66,30 +66,6 @@ int parser_EmployeeToText(FILE* pFile , LinkedList* pArrayListEmployee)
     return output;
 }
 
-int parser_EmployeeToBinary(FILE* pFile , LinkedList* pArrayListEmployee)
-{
-    int output = -1;
-    int writtenValues;
-    if(pFile != NULL && pArrayListEmployee != NULL)
-    {
-        Employee* aux;
-        if(pFile != NULL)
-        {
-            for(int x = 0; x < ll_len(pArrayListEmployee); x++)
-            {
-                aux = (Employee*)ll_get(pArrayListEmployee, x);
-                if(aux != NULL)
-                {
-                    fwrite(aux, sizeof(Employee),1,pFile);
-                }
-                output = 0;
-            }
-        }
-    }
-    return output;
-}
-
-
 /** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo binario).
  *
  * \param path char*
@@ -123,3 +99,31 @@ int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
     }
     return output;
 }
+
+int parser_EmployeeToBinary(FILE* pFile , LinkedList* pArrayListEmployee)
+{
+    int output = -1;
+    int writtenValues;
+    if(pFile != NULL && pArrayListEmployee != NULL)
+    {
+        Employee* aux;
+        if(pFile != NULL)
+        {
+            for(int x = 0; x < ll_len(pArrayListEmployee); x++)
+            {
+                aux = (Employee*)ll_get(pArrayListEmployee, x);
+                if(aux != NULL)
+                {
+                    writtenValues = fwrite(aux, sizeof(Employee),1,pFile);
+                    if(writtenValues == 1)
+                    {
+                        output = 0;
+                    }
+                }
+            }
+        }
+    }
+    return output;
+}
+
+
