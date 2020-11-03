@@ -129,7 +129,7 @@ int main()
                 }
                 break;
             case 8:
-                if(flagCaseOne == 1)
+                if(flagCaseOne == 1 || flagCaseOne == 1)
                 {
                     if(!(controller_saveAsText("data.csv", listaEmpleados)))
                     {
@@ -142,7 +142,7 @@ int main()
                 }
                 break;
             case 9:
-                if(flagCaseTwo == 1)
+                if(flagCaseOne == 1 || flagCaseTwo == 1)
                 {
                     if(!(controller_saveAsBinary("data.bin", listaEmpleados)))
                     {
