@@ -63,6 +63,10 @@ int employee_sortEmployeesById(void* pBuffer1, void* pBuffer2)
         {
             output = 1;
         }
+        else if(employee_getId(e1) < employee_getId(e2))
+        {
+            output = -1;
+        }
         else
         {
             output = 0;
@@ -100,6 +104,10 @@ int employee_sortEmployeesByHorasTrabajadas(void* pBuffer1, void* pBuffer2)
         {
             output = 1;
         }
+        else if(employee_getHorasTrabajadas(e1) < employee_getHorasTrabajadas(e2))
+        {
+            output = -1;
+        }
         else
         {
             output = 0;
@@ -120,6 +128,10 @@ int employee_sortEmployeesBySueldo(void* pBuffer1, void* pBuffer2)
         if(employee_getSueldo(e1) > employee_getSueldo(e2))
         {
             output = 1;
+        }
+        else if(employee_getSueldo(e1) < employee_getSueldo(e2))
+        {
+            output = -1;
         }
         else
         {

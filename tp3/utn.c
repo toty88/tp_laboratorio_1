@@ -13,16 +13,22 @@
  * @param len: El size limite de la cadena
  * @return (-1) Error (0) todo OK
  */
-int myGets(char *pCadena, int len) {
+int myGets(char *pCadena, int len)
+{
     int output = -1;
     char bufferString[4096];
     __fpurge(stdin);
-    if (pCadena != NULL && len > 0 && fgets(bufferString, sizeof(bufferString), stdin) != NULL) {
-        if (bufferString[0] == '\n') {
+    if (pCadena != NULL && len > 0 && fgets(bufferString, sizeof(bufferString), stdin) != NULL)
+    {
+        if (bufferString[0] == '\n')
+        {
             printf("Error, solo ingreso un ENTER\n");
-        } else {
+        }
+        else
+        {
             bufferString[strnlen(bufferString, sizeof(bufferString)) - 1] = '\0';
-            if (strnlen(bufferString, sizeof(bufferString)) <= len) {
+            if (strnlen(bufferString, sizeof(bufferString)) <= len)
+            {
                 strncpy(pCadena, bufferString, len);
                 output = 0;
             }
@@ -72,10 +78,10 @@ int utn_getString(char *msg, char *msgError, char *pCadena, int limite, int rein
             printf("%s", msg);
             if (!(myGets(pCadena, limite)))
             {
-                for(int x = 0; x<limite; x++)
-                {
-                    pCadena[x] = toupper(pCadena[x]);
-                }
+//                for(int x = 0; x<limite; x++)
+//                {
+//                    pCadena[x] = toupper(pCadena[x]);
+//                }
                 output = 0;
             }
             else
@@ -107,7 +113,9 @@ int utn_isAlphanumeric(char *pCadena){
                (pCadena[x] < '0' || pCadena[x] > 'z')
             && (pCadena[x] > '9' || pCadena[x] < 'A')
             && (pCadena[x] > 'Z' || pCadena[x] < 'a')
-            && pCadena[x] != ' '){
+            && pCadena[x] != ' '
+            && pCadena[x] != '-'
+            && pCadena[x] != '.'){
                 output = 0;
                 break;
             }

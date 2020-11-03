@@ -23,6 +23,7 @@ int main()
     int bufferOutput;
     int flagCaseOne = 0;
     int flagCaseTwo = 0;
+    char bufferFileName[SIZE_NAME];
     LinkedList *listaEmpleados = ll_newLinkedList();
     do
     {
@@ -31,18 +32,25 @@ int main()
             switch (mainMenuOption)
             {
             case 1:
-                if(!controller_loadFromText("data.csv", listaEmpleados))
+                if(!(utn_getString("Ingrese nombre archivo: ", "Error, reintentos", bufferFileName, SIZE_NAME, 3))
+                        && !(controller_loadFromText(bufferFileName, listaEmpleados)))
                 {
                     printf("\n >>>>> EMPLEADOS FORMATO TEXTO IMPORTADOS CON EXITO <<<<<\n");
                     flagCaseOne = 1;
 
                 }
+                else
+                {
+                    printf("\n >>>>> ARCHIVO NO ENCONTRADO, CORROBORE NOMBRE <<<<<\n");
+                }
                 break;
             case 2:
-                if(!controller_loadFromBinary("data.bin", listaEmpleados))
+                if(!(utn_getString("Ingrese nombre archivo: ", "Error, reintentos", bufferFileName, SIZE_NAME, 3))
+                        && !(controller_loadFromBinary(bufferFileName, listaEmpleados)))
                 {
-                    printf("\n >>>>> EMPLEADOS FORMATO BINARIO IMPORTADOS CON EXITO <<<<<\n");
-                    flagCaseTwo = 1;
+                    printf("\n >>>>> EMPLEADOS FORMATO TEXTO IMPORTADOS CON EXITO <<<<<\n");
+                    flagCaseOne = 2;
+
                 }
                 break;
             case 3:
@@ -129,7 +137,7 @@ int main()
                 }
                 break;
             case 8:
-                if(flagCaseOne == 1 || flagCaseOne == 1)
+                if(flagCaseOne == 1 || flagCaseTwo == 1)
                 {
                     if(!(controller_saveAsText("data.csv", listaEmpleados)))
                     {
@@ -138,7 +146,7 @@ int main()
                 }
                 else
                 {
-                    printf("\n >>>>> OPCION NO DISPONIBLE, PRIMERO IMPORTE EMPLEADOS (OPCION 1) <<<<<\n");
+                    printf("\n >>>>> OPCION NO DISPONIBLE, PRIMERO IMPORTE EMPLEADOS (OPCION 1 O 2) <<<<<\n");
                 }
                 break;
             case 9:
@@ -151,7 +159,7 @@ int main()
                 }
                 else
                 {
-                    printf("\n >>>>> OPCION NO DISPONIBLE, PRIMERO IMPORTE EMPLEADOS (OPCION 2) <<<<<\n");
+                    printf("\n >>>>> OPCION NO DISPONIBLE, PRIMERO IMPORTE EMPLEADOS (OPCION 1 O 2) <<<<<\n");
                 }
                 break;
             case 10:

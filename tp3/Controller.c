@@ -335,7 +335,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                 switch(bufferSortMenu)
                 {
                 case 1:
-                    if(!(utn_getIntConMinMax("(0). ORDENAR DE FORMA ASCENDENTE\n(1). ORDENAR DE FORMA DESCENDENTE -----> "
+                    if(!(utn_getIntConMinMax("(0). ORDENAR DE FORMA DESCENDENTE\n(1). ORDENAR DE FORMA ASCENDENTE -----> "
                             , "Error, reintentos", &bufferOrder, 0, 1, 3))
                             && !(ll_sort(pArrayListEmployee, employee_sortEmployeesById, bufferOrder)))
                     {
@@ -343,7 +343,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                     }
                     break;
                 case 2:
-                    if(!(utn_getIntConMinMax("(0). ORDENAR DE FORMA ASCENDENTE\n(1). ORDENAR DE FORMA DESCENDENTE -----> "
+                    if(!(utn_getIntConMinMax("(0). ORDENAR DE FORMA DESCENDENTE\n(1). ORDENAR DE FORMA ASCENDENTE -----> "
                             , "Error, reintentos", &bufferOrder, 0, 1, 3))
                             && !(ll_sort(pArrayListEmployee, employee_sortEmployeesByName, bufferOrder)))
                     {
@@ -351,7 +351,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                     }
                     break;
                 case 3:
-                    if(!(utn_getIntConMinMax("(0). ORDENAR DE FORMA ASCENDENTE\n(1). ORDENAR DE FORMA DESCENDENTE -----> "
+                    if(!(utn_getIntConMinMax("(0). ORDENAR DE FORMA DESCENDENTE\n(1). ORDENAR DE FORMA ASCENDENTE -----> "
                             , "Error, reintentos", &bufferOrder, 0, 1, 3))
                             && !(ll_sort(pArrayListEmployee, employee_sortEmployeesBySueldo, bufferOrder)))
                     {
@@ -359,7 +359,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                     }
                     break;
                 case 4:
-                    if(!(utn_getIntConMinMax("(0). ORDENAR DE FORMA ASCENDENTE\n(1). ORDENAR DE FORMA DESCENDENTE -----> "
+                    if(!(utn_getIntConMinMax("(0). ORDENAR DE FORMA DESCENDENTE\n(1). ORDENAR DE FORMA ASCENDENTE -----> "
                             , "Error, reintentos", &bufferOrder, 0, 1, 3))
                             && !(ll_sort(pArrayListEmployee, employee_sortEmployeesByHorasTrabajadas, bufferOrder)))
                     {
