@@ -305,7 +305,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
             aux = (Employee*)ll_get(pArrayListEmployee, x);
             if(aux != NULL)
             {
-                printf("%d %25s %20d %20.2f\n", employee_getId(aux), employee_getNombre(aux),
+                printf("%5d |%22s| %20d| %20.2f|\n", employee_getId(aux), employee_getNombre(aux),
                                                 employee_getHorasTrabajadas(aux), employee_getSueldo(aux));
             }
             output = 0;

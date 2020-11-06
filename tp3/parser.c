@@ -34,6 +34,10 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
                     {
                         output = 0;
                     }
+                    else
+                    {
+                        employee_delete(aux);
+                    }
                 }
             }
         }
@@ -92,6 +96,10 @@ int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
                     {
                         output = 0;
                     }
+                }
+                else
+                {
+                    employee_delete(aux);
                 }
             }
         }

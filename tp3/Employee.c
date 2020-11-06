@@ -1,12 +1,27 @@
 #include"Employee.h"
 
 
-
+/**
+ * @fn Employee employee_new*(void)
+ * @brief funcion que a asigna y devuelve un puntero tipo Empleado
+ *
+ * @return el puntero a Empleado o NULL
+ */
 Employee* employee_new(void)
 {
     return (Employee*)malloc(sizeof(Employee));
 }
 
+/**
+ * @fn Employee employee_newParametrosTXT*(char*, char*, char*, char*)
+ * @brief funcion que crea un empleado con parametros
+ *
+ * @param idStr el puntero a char
+ * @param nombreStr
+ * @param horasTrabajadasStr
+ * @param sueldStr
+ * @return
+ */
 Employee* employee_newParametrosTXT(char* idStr,char* nombreStr,char* horasTrabajadasStr, char* sueldStr)
 {
     Employee* this = employee_new();

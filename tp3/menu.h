@@ -16,11 +16,7 @@ int menu_SortEmployee(int*);
 /* ######################## HEADERS LISTAS #############################*/
 
 void printColumn(void);
-void printColumnSingleCliente(void);
-void printColumnPublicacion(void);
-void printColumnClienteYPublicacion(void);
-void printColumnPublicacionesDeUnCliente(void);
-void printColumnClientYpublicacionesActivas(void);
+
 
 
 #endif /* MENU_H_ */
