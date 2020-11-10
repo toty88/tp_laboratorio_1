@@ -550,6 +550,7 @@ int ll_sort(LinkedList *this, pFuncSort pFunc, int order)
                     {
                         if(x == 0)
                         {
+				//pensado para intercambiar nodos
                             currentNode->pNextNode = nextNode->pNextNode;
                             this->pFirstNode = nextNode;
                             nextNode->pNextNode = currentNode;
@@ -566,6 +567,7 @@ int ll_sort(LinkedList *this, pFuncSort pFunc, int order)
                         flagSort = 1;
                         output = 0;
                     }
+		    // pensado para intercambiar solo elementos
                     /*temp = nextNode->pElement;
                      * nextNode->pElement = currentNode->pElement;
                      * currentNode->pElement = temp;
