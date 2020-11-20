@@ -59,9 +59,4 @@ int employee_isValidSueldo(float sueldo);
 
 /* ###################################################### */
 
-
-
-
-
-
 #endif // employee_H_INCLUDED

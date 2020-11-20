@@ -3,6 +3,14 @@
 
 static int employee_generateId(LinkedList* pArrayListEmployee, int*);
 
+/**
+ * @fn int employee_generateId(LinkedList*, int*)
+ * @brief funcion que calcula nuevo id
+ *
+ * @param pArrayListEmployee la linked list de empleados
+ * @param id el puntero a int donde se guarda el id
+ * @return (-1) Error (0) Todo OK
+ */
 static int employee_generateId(LinkedList* pArrayListEmployee, int *id) {
 
     int output = -1;
@@ -16,6 +24,14 @@ static int employee_generateId(LinkedList* pArrayListEmployee, int *id) {
     return output;
 }
 
+/**
+ * @fn int employee_findMaxId(LinkedList*, int*)
+ * @brief funcion que calcula el id maximo y lo retorna
+ *
+ * @param pArrayListEmployee la linked list de empleados
+ * @param id el puntero a int donde se guardara maximo id
+ * @return (-1) Error (0) Todo OK
+ */
 int employee_findMaxId(LinkedList* pArrayListEmployee, int *id)
 {
     int output = -1;
@@ -41,9 +57,9 @@ int employee_findMaxId(LinkedList* pArrayListEmployee, int *id)
 }
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
+ * \param path char* nombre y ubicacion del fichero
+ * \param pArrayListEmployee LinkedList* la linked list de empleados
+ * \return  (-1) Error (0) Todo OK
  *
  */
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
@@ -64,9 +80,9 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
+ * \param path char* nombre y ubicacion del fichero
+ * \param pArrayListEmployee LinkedList* la linked list de empleados
+ * \return  (-1) Error (0) Todo OK
  *
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
@@ -85,12 +101,12 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
     return output;
 }
 
-/** \brief Alta de empleados
+/**
+ * @fn int controller_addEmployee(LinkedList*)
+ * @brief funcion que da de alta empleado
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param pArrayListEmployee la linked list de empleados
+ * @return  (-1) Error (0) Todo OK
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
@@ -117,6 +133,15 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
     return output;
 }
 
+/**
+ * @fn int employee_findById(LinkedList*, int, int*)
+ * @brief funcion que busca empleado por ID
+ *
+ * @param pArrayListEmployee la linked list de empleados
+ * @param id el int que se usa para comparar
+ * @param indexPosition el puntero a int donde se retorna posicion del ID si se encuentra
+ * @return  (-1) Error (0) Todo OK
+ */
 int employee_findById(LinkedList* pArrayListEmployee, int id, int *indexPosition)
 {
     int output = -1;
@@ -137,12 +162,12 @@ int employee_findById(LinkedList* pArrayListEmployee, int id, int *indexPosition
     return output;
 }
 
-/** \brief Modificar datos de empleado
+/**
+ * @fn int controller_editEmployee(LinkedList*)
+ * @brief funcion que modifica un empleado
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param pArrayListEmployee la linked list de empleados
+ * @return  (-1) Error (0) Todo OK
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
@@ -213,12 +238,12 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     return output;
 }
 
-/** \brief Baja de empleado
+/**
+ * @fn int controller_removeEmployee(LinkedList*)
+ * @brief funcion que elimina un empleado de la linked list
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param pArrayListEmployee la linked list de empleados
+ * @return  (-1) Error (0) Todo OK
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
@@ -285,12 +310,12 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
     return output;
 }
 
-/** \brief Listar empleados
+/**
+ * @fn int controller_ListEmployee(LinkedList*)
+ * @brief funcion que lista empleados por stdout
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param pArrayListEmployee la linked list de empleados
+ * @return  (-1) Error (0) Todo OK
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
@@ -314,12 +339,12 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
     return output;
 }
 
-/** \brief Ordenar empleados
+/**
+ * @fn int controller_sortEmployee(LinkedList*)
+ * @brief funcion que ordena empleados
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param pArrayListEmployee la linked list de empleados
+ * @return  (-1) Error (0) Todo OK
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
@@ -379,12 +404,13 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
     return output;
 }
 
-/** \brief Guarda los datos de los empleados en el archivo data.csv (modo texto).
+/**
+ * @fn int controller_saveAsText(char*, LinkedList*)
+ * @brief
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param path nombre y ubicacion del fichero
+ * @param pArrayListEmployee la linked list de empleados
+ * @return  (-1) Error (0) Todo OK
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
@@ -405,12 +431,13 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
     return output;
 }
 
-/** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).
+/**
+ * @fn int controller_saveAsBinary(char*, LinkedList*)
+ * @brief
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param path nombre y ubicacion del fichero
+ * @param pArrayListEmployee la linked list de empleados
+ * @return  (-1) Error (0) Todo OK
  */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {

@@ -3,12 +3,13 @@
 #include "LinkedList.h"
 #include "Employee.h"
 
-/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo texto).
+/**
+ * @fn int parser_EmployeeFromText(FILE*, LinkedList*)
+ * @brief funcion que parsea elementos DESDE un archivo de texto de tipo csv
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param pFile el puntero al archivo
+ * @param pArrayListEmployee la linked list de empleados
+ * @return (1) Error (0) Todo OK
  */
 int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
@@ -46,6 +47,14 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     return output;
 }
 
+/**
+ * @fn int parser_EmployeeToText(FILE*, LinkedList*)
+ * @brief funcion que parsea elementos HACIA un archivo de texto de tipo csv
+ *
+ * @param pFile el puntero al archivo
+ * @param pArrayListEmployee la linked list de empleados
+ * @return (1) Error (0) Todo OK
+ */
 int parser_EmployeeToText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
     int output = -1;
@@ -70,12 +79,13 @@ int parser_EmployeeToText(FILE* pFile , LinkedList* pArrayListEmployee)
     return output;
 }
 
-/** \brief Parsea los datos los datos de los empleados desde el archivo data.csv (modo binario).
+/**
+ * @fn int parser_EmployeeFromText(FILE*, LinkedList*)
+ * @brief funcion que parsea elementos de un archivo de tipo binario
  *
- * \param path char*
- * \param pArrayListEmployee LinkedList*
- * \return int
- *
+ * @param pFile el puntero al archivo
+ * @param pArrayListEmployee la linked list de empleados
+ * @return (1) Error (0) Todo OK
  */
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
@@ -108,6 +118,14 @@ int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
     return output;
 }
 
+/**
+ * @fn int parser_EmployeeToText(FILE*, LinkedList*)
+ * @brief funcion que parsea elementos HACIA un archivo de tipo binario
+ *
+ * @param pFile el puntero al archivo
+ * @param pArrayListEmployee la linked list de empleados
+ * @return (1) Error (0) Todo OK
+ */
 int parser_EmployeeToBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
     int output = -1;

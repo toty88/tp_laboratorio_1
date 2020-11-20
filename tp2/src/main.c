@@ -4,6 +4,12 @@
 #include"menu.h"
 #include"ArrayEmployees.h"
 
+/* Testeado en:     Linux archlinux
+ * Kernel:          5.9.8-arch1-
+ * Version GCC:     gcc version 10.2.0 (GCC)
+ * Sin Warnings, Sin Errores
+ */
+
 int main(void){
 
 	int opcionMenuPrincipal;

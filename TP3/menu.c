@@ -5,19 +5,13 @@
 
 /* ########################## MENUES ##################################*/
 
-/****************************************************
-    Menu:
-     1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).
-     2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).
-     3. Alta de empleado
-     4. Modificar datos de empleado
-     5. Baja de empleado
-     6. Listar empleados
-     7. Ordenar empleados
-     8. Guardar los datos de los empleados en el archivo data.csv (modo texto).
-     9. Guardar los datos de los empleados en el archivo data.csv (modo binario).
-    10. Salir
-*****************************************************/
+/**
+ * @fn int menu_Main(int*)
+ * @brief funcion que despliega un menu principal
+ *
+ * @param pResultado puntero int donde se guardara la opcion elgida por el usuario
+ * @return (-1) Error (0) Todo OK
+ */
 int menu_Main(int *pResultado)
 {
     int output = -1;
@@ -46,6 +40,13 @@ int menu_Main(int *pResultado)
     return output;
 }
 
+/**
+ * @fn int menu_Main(int*)
+ * @brief funcion que despliega un menu de modificaciones de empleado
+ *
+ * @param pResultado puntero int donde se guardara la opcion elgida por el usuario
+ * @return (-1) Error (0) Todo OK
+ */
 int menu_ModifyEmployee(int *pResultado)
 {
     int output = -1;
@@ -70,6 +71,13 @@ int menu_ModifyEmployee(int *pResultado)
     return output;
 }
 
+/**
+ * @fn int menu_Main(int*)
+ * @brief funcion que despliega un menu de eliminacion de empleado
+ *
+ * @param pResultado puntero int donde se guardara la opcion elgida por el usuario
+ * @return (-1) Error (0) Todo OK
+ */
 int menu_RemoveEmployee(int *pResultado)
 {
     int output = -1;
@@ -93,6 +101,13 @@ int menu_RemoveEmployee(int *pResultado)
     return output;
 }
 
+/**
+ * @fn int menu_Main(int*)
+ * @brief funcion que despliega un menu de ordenamiento de empleados
+ *
+ * @param pResultado puntero int donde se guardara la opcion elgida por el usuario
+ * @return (-1) Error (0) Todo OK
+ */
 int menu_SortEmployee(int *pResultado)
 {
     int output = -1;
@@ -119,6 +134,11 @@ int menu_SortEmployee(int *pResultado)
 
 /* ########################## PRINTS ##################################*/
 
+/**
+ * @fn void printColumn(void)
+ * @brief funcion que imprime cabecera antes de listar empleados
+ *
+ */
 void printColumn(void){
 
     char sp = ' ';
