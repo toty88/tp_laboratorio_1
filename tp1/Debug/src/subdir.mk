@@ -5,18 +5,18 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../src/funciones.c \
-../src/menu.c \
-../src/tp1.c 
+../src/main.c \
+../src/menu.c 
 
 OBJS += \
 ./src/funciones.o \
-./src/menu.o \
-./src/tp1.o 
+./src/main.o \
+./src/menu.o 
 
 C_DEPS += \
 ./src/funciones.d \
-./src/menu.d \
-./src/tp1.d 
+./src/main.d \
+./src/menu.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

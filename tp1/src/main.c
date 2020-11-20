@@ -9,7 +9,7 @@
 int main(void){
 	int resultadoOperacion;
 	int resultadoOperaciones[4];
-       	float numero1 = 0;
+    float numero1 = 0;
 	float numero2 = 0;
 	unsigned int flagMenu = 0;
 	unsigned int flagCalcularOperaciones = 0;
